@@ -4,7 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import uce.edu.ec.PROYECTOFINAL_PAII_CraftTech_SprinBoot.model.OrderConsumer;
-import uce.edu.ec.PROYECTOFINAL_PAII_CraftTech_SprinBoot.service.OrderService;
+import uce.edu.ec.PROYECTOFINAL_PAII_CraftTech_SprinBoot.DAO.service.OrderService;
 
 import java.util.List;
 
@@ -17,13 +17,13 @@ public class OrderController {
 
     @GetMapping  // Método GET para obtener todos los pedidos
     public ResponseEntity<List<OrderConsumer>> obtenerPedidos() {
-        List<OrderConsumer> pedidos = pedidoService.obtenerTodosLosPedidos();
+        List<OrderConsumer> pedidos = pedidoService.findAll();
         return ResponseEntity.ok(pedidos);
     }
 
     @PostMapping("/crear")  // Método POST para crear un nuevo pedido
     public ResponseEntity<?> crearPedido(@RequestBody OrderConsumer pedido) {
-        pedidoService.crearPedido(pedido);
+        pedidoService.save(pedido);
         return ResponseEntity.ok("Pedido creado correctamente");
     }
 

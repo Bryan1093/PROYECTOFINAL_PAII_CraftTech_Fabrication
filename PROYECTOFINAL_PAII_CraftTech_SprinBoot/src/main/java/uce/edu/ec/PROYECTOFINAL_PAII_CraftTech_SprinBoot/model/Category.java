@@ -1,10 +1,9 @@
 package uce.edu.ec.PROYECTOFINAL_PAII_CraftTech_SprinBoot.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.*;
+
+import java.util.List;
 
 @Entity
 @Getter
@@ -13,12 +12,14 @@ import lombok.*;
 @AllArgsConstructor
 @ToString
 @EqualsAndHashCode
-public class User {
+public class Category {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-    private String username;
-    private String password;
-    private String role;
+
+    private String name;
+
+    @OneToMany(mappedBy = "category")
+    private List<Product> products;
 }

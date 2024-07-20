@@ -4,6 +4,7 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.ManyToOne;
 import lombok.*;
 
 import java.util.Date;
@@ -15,12 +16,17 @@ import java.util.Date;
 @AllArgsConstructor
 @ToString
 @EqualsAndHashCode
-public class OrderConsumer {
+public class ManufacturingProcess {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-    private String producto;  // Nombre del producto
-    private String cliente;   // Nombre del cliente
-    private Date fecha;       // Fecha del pedido
+
+    private String processName;
+    private Date startDate;
+    private Date endDate;
+    private String status;
+
+    @ManyToOne
+    private Product product;
 }

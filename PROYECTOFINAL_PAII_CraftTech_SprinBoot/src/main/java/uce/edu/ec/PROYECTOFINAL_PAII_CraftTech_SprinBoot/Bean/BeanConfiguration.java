@@ -1,4 +1,4 @@
-package uce.edu.ec.PROYECTOFINAL_PAII_CraftTech_SprinBoot.service;
+package uce.edu.ec.PROYECTOFINAL_PAII_CraftTech_SprinBoot.Bean;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -7,7 +7,7 @@ import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 import org.springframework.web.filter.CorsFilter;
 
 @Configuration
-public class CorsConfig {
+public class BeanConfiguration {
 
     @Bean
     public CorsFilter corsFilter() {
