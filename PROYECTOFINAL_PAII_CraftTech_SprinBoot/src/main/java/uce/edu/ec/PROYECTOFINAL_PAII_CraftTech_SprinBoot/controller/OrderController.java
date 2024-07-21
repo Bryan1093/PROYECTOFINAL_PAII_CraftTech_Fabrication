@@ -15,16 +15,25 @@ public class OrderController {
     @Autowired
     private OrderService pedidoService;
 
-    @GetMapping  // Método GET para obtener todos los pedidos
+    @GetMapping
     public ResponseEntity<List<OrderConsumer>> obtenerPedidos() {
         List<OrderConsumer> pedidos = pedidoService.findAll();
         return ResponseEntity.ok(pedidos);
     }
 
-    @PostMapping("/crear")  // Método POST para crear un nuevo pedido
-    public ResponseEntity<?> crearPedido(@RequestBody OrderConsumer pedido) {
-        pedidoService.save(pedido);
-        return ResponseEntity.ok("Pedido creado correctamente");
+    @PostMapping("/crear")
+    public ResponseEntity<String> crearPedido(@RequestBody OrderConsumer pedido) {
+        try {
+            pedidoService.save(pedido);
+            return ResponseEntity.ok("Pedido creado correctamente");
+        } catch (Exception e) {
+            return ResponseEntity.status(500).body("Error al crear el pedido");
+        }
     }
 
+    @GetMapping("/{id}")
+    public ResponseEntity<OrderConsumer> obtenerPedidoPorId(@PathVariable Long id) {
+        OrderConsumer pedido = pedidoService.findById(id);
+        return pedido != null ? ResponseEntity.ok(pedido) : ResponseEntity.notFound().build();
+    }
 }
