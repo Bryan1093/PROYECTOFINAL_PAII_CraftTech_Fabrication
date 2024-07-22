@@ -1,4 +1,4 @@
-package uce.edu.ec.PROYECTOFINAL_PAII_CraftTech_Swing.config;
+package uce.edu.ec.PROYECTOFINAL_PAII_CraftTech_Swing.View.config;
 
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.CorsRegistry;

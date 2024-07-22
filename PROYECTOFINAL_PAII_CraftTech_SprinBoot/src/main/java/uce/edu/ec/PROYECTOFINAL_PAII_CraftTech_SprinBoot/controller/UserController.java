@@ -31,6 +31,22 @@ public class UserController {
         }
     }
 
+    @PostMapping("/login")
+    public ResponseEntity<String> loginUser(@RequestBody User user) {
+        // Verificar si es el usuario administrador predefinido
+        if (user.getUsername().equals("@root") && user.getPassword().equals("@root")) {
+            return ResponseEntity.ok("admin");
+        }
+
+        User foundUser = userService.findByUsernameAndPassword(user.getUsername(), user.getPassword());
+        if (foundUser != null) {
+            return ResponseEntity.ok(foundUser.getRole());
+        } else {
+            return ResponseEntity.status(401).body("Invalid username or password");
+        }
+    }
+
+
     @GetMapping
     public ResponseEntity<List<User>> getAllUsers() {
         List<User> users = userService.findAll();

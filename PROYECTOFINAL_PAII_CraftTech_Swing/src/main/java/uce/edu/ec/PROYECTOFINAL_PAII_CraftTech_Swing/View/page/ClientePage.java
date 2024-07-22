@@ -1,6 +1,6 @@
-package uce.edu.ec.PROYECTOFINAL_PAII_CraftTech_Swing.page;
+package uce.edu.ec.PROYECTOFINAL_PAII_CraftTech_Swing.View.page;
 
-import uce.edu.ec.PROYECTOFINAL_PAII_CraftTech_Swing.view.LoginForm;
+import uce.edu.ec.PROYECTOFINAL_PAII_CraftTech_Swing.View.LoginForm;
 
 import javax.swing.*;
 import java.awt.*;
@@ -56,8 +56,7 @@ public class ClientePage extends JFrame {
         panel.add(clienteField);
         panel.add(new JLabel());  // Espacio vacío para alinear botón con campos
         panel.add(enviarPedidoButton);
-        panel.add(new JLabel());  // Espacio vacío para alinear botón con campos
-        panel.add(cambiarCuentaButton);
+
 
         // Agregar panel al JFrame
         add(panel);

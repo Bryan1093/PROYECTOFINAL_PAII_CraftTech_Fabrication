@@ -1,4 +1,4 @@
-package uce.edu.ec.PROYECTOFINAL_PAII_CraftTech_Swing.page;
+package uce.edu.ec.PROYECTOFINAL_PAII_CraftTech_Swing.View.page;
 
 
 import com.google.gson.JsonArray;
