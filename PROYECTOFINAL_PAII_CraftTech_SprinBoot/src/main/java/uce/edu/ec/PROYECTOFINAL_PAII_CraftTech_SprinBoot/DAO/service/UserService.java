@@ -33,11 +33,4 @@ public class UserService implements IUserService {
     public List<User> findAll() {
         return userDao.findAll();
     }
-
-    @Override
-    public User findByUsernameAndPassword(String username, String password) {
-        User user = userDao.findByUsernameAndPassword(username, password);
-        System.out.println("Encontrado usuario: " + user);
-        return user;
-    }
 }

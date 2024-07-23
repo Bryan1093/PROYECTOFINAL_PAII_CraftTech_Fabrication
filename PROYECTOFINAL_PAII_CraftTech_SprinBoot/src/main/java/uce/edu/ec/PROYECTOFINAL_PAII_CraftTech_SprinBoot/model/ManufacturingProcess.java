@@ -24,8 +24,6 @@ public class ManufacturingProcess {
     private String status;
 
     @ManyToOne
+    @JoinColumn(name = "product_id")
     private Product product;
-
-    @OneToOne
-    private OrderConsumer orderConsumer;
 }

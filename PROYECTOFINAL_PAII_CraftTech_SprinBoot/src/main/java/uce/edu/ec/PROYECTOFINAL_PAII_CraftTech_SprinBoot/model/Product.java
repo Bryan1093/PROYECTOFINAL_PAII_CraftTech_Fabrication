@@ -21,9 +21,7 @@ public class Product {
     private String name;
     private String description;
     private Double price;
-
-    @ManyToOne
-    private Category category;
+    private String category;
 
     @OneToMany(mappedBy = "product")
     private List<ManufacturingProcess> manufacturingProcesses;
